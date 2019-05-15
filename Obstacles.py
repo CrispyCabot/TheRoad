@@ -28,9 +28,11 @@ class Bush(Object):
         win.blit(bushImg, loc)
 
 class Tree(Object):
-    def __init__(self, x, y):
+    def __init__(self, x, y, test=100):
         Object.__init__(self, x, y)
         self.type = randint(0,16)
+        if test != 100:
+            self.type = test
     def draw(self, win):
         img = trees[self.type]
         loc = img.get_rect()

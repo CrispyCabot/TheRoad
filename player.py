@@ -33,6 +33,7 @@ class Player:
         self.shots = []
         self.shotDelay = 0
         self.health = 100
+        self.damageTimer = 0
 
     def update(self, keys):
         self.shotDelay += 1
@@ -63,9 +64,10 @@ class Player:
         loc = img.get_rect()
         loc.midbottom = (self.x, self.y)
         win.blit(img, loc)
-        if self.health < 100:
-            pygame.draw.rect(win, (0,255,0), pygame.Rect(self.x-50,self.y-100,self.health,10))
-            pygame.draw.rect(win, (255,0,0), pygame.Rect(self.x-50+self.health,self.y-100,100-self.health,10))
+        if self.health < 100 and self.damageTimer < 300:
+            self.damageTimer += 1
+            pygame.draw.rect(win, (0,0,0), pygame.Rect(self.x-50,self.y-100,self.health,10))
+            pygame.draw.rect(win, (0,0,0), pygame.Rect(self.x-50,self.y-100,100, 10), 1)
         for i in self.shots:
             i.draw(win)
 
