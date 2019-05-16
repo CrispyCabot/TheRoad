@@ -34,7 +34,7 @@ def main():
     currMap = mapParts[playerLoc] #currMap = [[obstacles], [enemies]]
     scoreboard = []
 
-    file = open('scoreboard.txt', 'r')
+    file = open(PATH+'scoreboard.txt', 'r')
     text = file.readlines()
     for i in text:
         scoreboard.append(i.split())
@@ -214,7 +214,7 @@ def main():
         name = '-'.join(name.split())
         scoreboard.insert(index, [name, playerLoc])
         scoreboard.pop(5)
-        file = open('scoreboard.txt', 'w')
+        file = open(PATH+'scoreboard.txt', 'w')
         for i in scoreboard:
             file.write(i[0]+' '+str(i[1])+'\n')
             
