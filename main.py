@@ -305,3 +305,5 @@ def getMap(test=False):
 
 while main():
     main()
+
+pygame.quit()
